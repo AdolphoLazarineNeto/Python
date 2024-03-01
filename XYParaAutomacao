@@ -1,0 +1,18 @@
+import pyautogui
+import tkinter as tk
+
+def mostrar_coordenadas():
+    x, y = pyautogui.position()
+    label_coordenadas.config(text="X: {}  Y: {}".format(x, y))
+    janela.after(100, mostrar_coordenadas) 
+
+janela = tk.Tk()
+janela.title("Coordenadas do Mouse")
+
+label_coordenadas = tk.Label(janela, font=("Arial", 18))
+label_coordenadas.pack(pady=20)
+
+mostrar_coordenadas()
+
+janela.mainloop()
+
